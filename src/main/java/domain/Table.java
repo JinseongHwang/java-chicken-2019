@@ -23,6 +23,10 @@ public class Table {
         return orders.get(menu);
     }
 
+    public boolean isEmpty() {
+        return orders.isEmpty();
+    }
+
     public void add(Menu menu, int quantity) {
         orders.put(menu, orderedQuantity(menu) + quantity);
     }
