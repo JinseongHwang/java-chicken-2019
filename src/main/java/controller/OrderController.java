@@ -7,8 +7,6 @@ import domain.TableRepository;
 import view.InputView;
 import view.OutputView;
 
-import java.util.Map;
-
 public class OrderController {
 
     public static void run() {
@@ -23,10 +21,5 @@ public class OrderController {
         }
 
         table.add(menu, quantity);
-
-        System.out.println("## 주문내역~~~");
-        for (Map.Entry<Menu, Integer> entry : table.orderContents().entrySet()) {
-            System.out.println(entry.getKey().toString() + "를 " + entry.getValue() + "개 시켰네요 ~~");
-        }
     }
 }
