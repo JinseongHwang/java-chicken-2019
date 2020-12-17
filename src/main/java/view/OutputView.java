@@ -4,6 +4,7 @@ import domain.Menu;
 import domain.Table;
 
 import java.util.List;
+import java.util.Map;
 
 public class OutputView {
     private static final String TOP_LINE = "┌ ─ ┐";
@@ -48,5 +49,13 @@ public class OutputView {
             System.out.printf(TABLE_FORMAT, table);
         }
         System.out.println();
+    }
+
+    public static void printOrderContentsIn(Table table) {
+        System.out.println("## 주문 내역");
+        System.out.println("메뉴 수량 금액");
+        for (Map.Entry<Menu, Integer> entry : table.orderContents().entrySet()) {
+            System.out.println(entry.getKey().getName() + " " + entry.getValue() + " " + entry.getKey().getPrice() * entry.getValue());
+        }
     }
 }
