@@ -22,4 +22,16 @@ public class Menu {
         return number;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public boolean isChicken() {
+        return category.equals(Category.CHICKEN);
+    }
+
 }
