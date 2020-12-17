@@ -35,4 +35,8 @@ public class Table {
         return orders;
     }
 
+    public void checkout() {
+        orders.clear();
+    }
+
 }
