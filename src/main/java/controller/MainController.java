@@ -1,14 +1,15 @@
 package controller;
 
 import domain.Table;
+import utils.Power;
 import view.InputView;
 
 public class MainController {
 
     public static void run() {
         MainController.print();
-        int number = InputView.inputFunctionNumber();
-
+        int selectedNumber = InputView.inputFunctionNumber();
+        nextProcedure(selectedNumber);
 
         Table currentTable = InputView.inputTableNumber();
         System.out.println(currentTable.toString());
@@ -22,8 +23,16 @@ public class MainController {
     }
 
     private static void nextProcedure(int command) {
-
+        if (command == MainFunction.ORDER.getNumber()) {
+            OrderController.run();
+        } else if (command == MainFunction.PAYMENT.getNumber()) {
+            PaymentController.run();
+        } else if (command == MainFunction.EXIT.getNumber()) {
+            Power.turnOff();
+        }
+        if (Power.isOn()) {
+            MainController.run();
+        }
     }
-
 
 }
