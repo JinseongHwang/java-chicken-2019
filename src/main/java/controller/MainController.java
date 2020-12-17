@@ -1,7 +1,5 @@
 package controller;
 
-import domain.Table;
-import utils.Power;
 import view.InputView;
 
 public class MainController {
@@ -11,8 +9,8 @@ public class MainController {
         int selectedNumber = InputView.inputFunctionNumber();
         nextProcedure(selectedNumber);
 
-        Table currentTable = InputView.inputTableNumber();
-        System.out.println(currentTable.toString());
+//        Table currentTable = InputView.inputTableNumber();
+//        System.out.println(currentTable.toString());
     }
 
     private static void print() {
@@ -28,11 +26,9 @@ public class MainController {
         } else if (command == MainFunction.PAYMENT.getNumber()) {
             PaymentController.run();
         } else if (command == MainFunction.EXIT.getNumber()) {
-            Power.turnOff();
+            return;
         }
-        if (Power.isOn()) {
-            MainController.run();
-        }
+        MainController.run();
     }
 
 }
