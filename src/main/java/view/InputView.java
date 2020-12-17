@@ -80,5 +80,20 @@ public class InputView {
         }
     }
 
+    public static int inputPaymentMethod() {
+        try {
+            System.out.println("신용 카드는 1번, 현금은 2번");
+            int method = scanner.nextInt();
+            bufferFlush();
+            return Validator.reasonableMethod(method);
+        } catch (InputMismatchException IME) {
+            System.out.println("[ERROR] 정수를 입력해주세요.");
+            bufferFlush();
+            return inputPaymentMethod();
+        } catch (IllegalArgumentException IAE) {
+            System.out.println("[ERROR] 1 또는 2만 입력할 수 있습니다.");
+            return inputPaymentMethod();
+        }
+    }
 
 }
